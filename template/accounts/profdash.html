@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block style %}
+
+{% endblock style %}
+{% block title %}Welcome {{user}}{% endblock title %}
+
+{% block content %}
+{% block navcontent %}
+<h1>welcome {{user}}</h1><br>
+<h1>{{request.user.groups.get}}</h1>
+{% endblock navcontent %}
+{% endblock content %}

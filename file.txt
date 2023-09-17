@@ -1,0 +1,15 @@
+def registers(request):
+        form = register()
+        if request.method == 'POST':
+            form = register(request.POST)
+            if form.is_valid():
+                user = form.save()
+                username = form.cleaned_data.get('username')
+                group = Group.objects.get(name='customer')
+                user.groups.add(group)
+                customer.objects.create(user=user,name=user)
+                message = messages.success(request,'Account Was Created Succesfully For ' + username)
+                return redirect('login')
+            
+        context = {'form' : form}
+        return render(request,'login/register.html',context)

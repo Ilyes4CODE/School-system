@@ -1,0 +1,28 @@
+{% load static %}
+<head>
+    <link rel="stylesheet" href="{% static 'css/nav.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://use.fontawesome.com/b8151edcda.js"></script>
+    <script src="{% static 'js/nav.js' %}"></script>
+</head>
+<nav class="vertical-menu-wrapper">
+  <div class="vertical-menu-logo">
+    <div>LOGO</div>
+    <span class="open-menu-btn"><hr><hr><hr></span>
+  </div>
+  <ul class="vertical-menu">
+    <li>Dashboard</li>
+    <li><a href="#">Exams</a></li>
+    <li><a href="#">TD & TP Notes</a></li>
+    <hr />
+    <li><a href="#">Settings</a></li>
+    <li><a href="{% url 'logout_view' %}">Logout</a></li>
+    <li id="user-info">{{user}}<span>online</span></li>
+  </ul>
+</nav>
+<div class="content-wrapper">
+  <div class="content">
+    {% block navcontent %}
+    {% endblock navcontent %}
+  </div>
+</div>
